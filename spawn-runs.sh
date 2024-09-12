@@ -24,7 +24,7 @@ num_jobs=`wc -l ${jobslist} | awk '{print $1 }'`
 echo 'Number of runs: ' ${num_jobs} '...'
 
 #-------------- Loop over all polys (start after headed line)  ----------------------------#
-iter=0
+iter=1
 
 while [ ${iter} -lt ${num_jobs} ]
 do

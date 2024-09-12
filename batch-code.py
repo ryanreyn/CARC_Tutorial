@@ -41,8 +41,8 @@ def catch_the_train(person,commute):
 print("Running our first job!\n")
 
 #The person and commute time will be directly inserted by the job generation script
-curr_person="Anna"
-curr_commute=5
+curr_person=sub_person
+curr_commute=sub_commute
 catch_the_train(curr_person,curr_commute)
 
 

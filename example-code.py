@@ -49,5 +49,4 @@ for i in range(len(Data["Person"])):
     curr_commute=Data["Commute"][i]
     catch_the_train(curr_person,curr_commute)
 
-
     
