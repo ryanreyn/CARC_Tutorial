@@ -1,0 +1,7 @@
+Person	Commute
+Su	8
+Chase	3
+Anna	5
+Naomi	NA
+Kate	6
+Ryan	3
