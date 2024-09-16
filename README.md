@@ -66,7 +66,10 @@ To batch submit a job, we need to create additional *shell* scripts (scripts tha
 - Job submission manager script (*bash*)
 - Data file(s) (*.tsv, etc.*)
 - Template run file (*bash, python, R, etc.*)
-Some of these, such as the run file, job submission script, and data file(s) are files we already encountered while learning about direct submissions, but will each have specific tweaks to accomodate a batch architecture. An example of each of these files is provided as part of this tutorial with descriptions throughout to demonstrate the purpose and construction of each file type. The key difference between direct and batch submissions is that the run and job files for a batch submissions are ***templates*** rather than fully complete files. These template files can no longer be run directly and require the user to substitute in specific values for dummy variables present throughout each file. For example, in `batch-submit-test_script.slurm` we see that the line calling python to run our run scripts says `python sub_python` rather than `python example-code.py`. The variable `sub_python` now stands as a placeholder for the name of any `.py` script. This template structure allows us to use a script such as `spawn-runs.sh` to create a many copies of the job submission and run files that each runs a specific combination of values for the independent variables in our run script as defined in the data file. These values can be substituted into copies of the template file using the *stream editor* program, `sed`. For instance, we can substitute the value `sub_python` from our job submission script for a unique `<run name>` using `sed`
+
+Some of these, such as the run file, job submission script, and data file(s) are files we already encountered while learning about direct submissions, but will each have specific tweaks to accomodate a batch architecture. An example of each of these files is provided as part of this tutorial with descriptions throughout to demonstrate the purpose and construction of each file type. The key difference between direct and batch submissions is that the run and job files for a batch submissions are ***templates*** rather than fully complete files. These template files can no longer be run directly and require the user to substitute in specific values for dummy variables present throughout each file. 
+
+For example, in `batch-submit-test_script.slurm` we see that the line calling python to run our run scripts says `python sub_python` rather than `python example-code.py`. The variable `sub_python` now stands as a placeholder for the name of any `.py` script. This template structure allows us to use a script such as `spawn-runs.sh` to create a many copies of the job submission and run files that each runs a specific combination of values for the independent variables in our run script as defined in the data file. These values can be substituted into copies of the template file using the *stream editor* program, `sed`. For instance, we can substitute the value `sub_python` from our job submission script for a unique `<run name>` using `sed`
 ```
 sed -i -e s@sub_python@${<run name>}@g batch-submit-test_script.slurm
 ```
@@ -80,6 +83,7 @@ To actually create and run the job files created by our batch scripts, batch sub
 - Submitting the runs using the `jobs-submitter.sh` script
 - Supervising the jobs, checking error and output, and fixing code bugs
 - Repeating the spawn and submission with new versions of the template files
+
 In practice, calling these scripts would look like this, with some standard output after each functional call
 ```
 ./spawn-runs.sh
