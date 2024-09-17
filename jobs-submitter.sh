@@ -8,7 +8,7 @@ there=${here}'/Runs'
 
 
 #-------------- Determine the number of jobs to run based on file list  --------------------
------------------------------#
+#-----------------------------#
 num_jobs=`wc -l ${joblist} | awk '{print $1 }'`
 
 echo 'Number of runs to submit: ' ${num_jobs} '...'

@@ -15,7 +15,7 @@ mkdir ${there}
 
 fi
 
-cp runconditions.txt ${there}
+cp ${jobslist} ${there}
 
 #-------------- Determine number of jobs you need to run  ----------------
 #---------------------------------#
