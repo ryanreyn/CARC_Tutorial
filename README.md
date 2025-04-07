@@ -1,9 +1,9 @@
 # CARC_Tutorial
 This repository is designed to demonstrate how to use the USC CARC remote computing resources and to offer tools and tutorials for CARC users to take advantage of. ***Jupyter notebook*** tutorials are provided in the *tutorials* folder, while the individual files created manually in these tutorials are hosted in the *tools* folder and can be used as templates for a user's own job submission needs. This README file is broken out into sections that can be accessed easily from the outline. These sections provide detail and guidance on the following: 
-- direct installation of these tools and tutorials as a package
-- cloning this repository to git and how to use git on CARC
-- a walkthrough of job architecture on CARC and the typical script pipeline
-- additional guidance for specific tools (e.g., nextflow) that are in this repo
+- Direct installation of these tools and tutorials as a package
+- Cloning this repository to git and how to use git on CARC
+- A walkthrough of job architecture on CARC and the typical script pipeline
+- Additional guidance for specific tools (e.g., nextflow) that are in this repo
 
 ## Installing this repository directly
 This repository is still under development, but package releases are coming soon for those who would like to directly install the scripts in this repo.
