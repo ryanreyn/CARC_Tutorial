@@ -1,14 +1,21 @@
 # CARC_Tutorial
-This is a tutorial designed to demonstrate how to use the USC CARC remote computing resources. Additionally, the various files in this repository can be used as templates for designing your own job submissions (using either a batch construction or direct submission).
+This repository is designed to demonstrate how to use the USC CARC remote computing resources and to offer tools and tutorials for CARC users to take advantage of. ***Jupyter notebook*** tutorials are provided in the *tutorials* folder, while the individual files created manually in these tutorials are hosted in the *tools* folder and can be used as templates for a user's own job submission needs. This README file is broken out into sections that can be accessed easily from the outline. These sections provide detail and guidance on the following: 
+- direct installation of these tools and tutorials as a package
+- cloning this repository to git and how to use git on CARC
+- a walkthrough of job architecture on CARC and the typical script pipeline
+- additional guidance for specific tools (e.g., nextflow) that are in this repo
+
+## Installing this repository directly
+This repository is still under development, but package releases are coming soon for those who would like to directly install the scripts in this repo.
 
 ## Using git on CARC
-Using git on CARC is a very easy process as the CARC system operates using modules that are installed directly onto the remote system by the CARC support team. These modules represent versions of various software that can be directly used by loading those modules into your workspace. In our case, to access git all we have to do is run the following command:
+Using git on CARC is a very easy process. The CARC system operates using modules that are installed directly onto the remote system by the CARC support team. These modules represent versions of various software that can be directly used by loading those modules into your workspace. In our case, to access git all we have to do is run the following command:
 ```
 module load git
 ```
 That's it! Now we have access to all of the git functions that we will need for the remainder of this tutorial! If you don't want to have to run `module load git` each time you login, consider adding this command to your `.bashrc` file, which sets up your remote workspace each time you log in. If you happen to be interested in what other modules you may be able to use during your time working on CARC, you can always run `module avail` to see what modules are available to be loaded into your workspace.
 
-## Cloning a git repository to a CARC folder
+### Cloning a git repository to a CARC folder
 Now that we've loaded git into our remote workspace, we want to clone a repository from Github so that we can now generate and edit code with version control while working on the CARC remote system. CARC has a general [support page](https://www.carc.usc.edu/user-guides/hpc-systems/software/git) for using git that may be useful to refer to throughout this tutorial. 
 
 Before we can get to cloning repositories, we first need to set up an ***ssh key*** on our Github account that lets Github know to trust any interactions we create between our local folder on CARC and our git repository hosted on Github. To do this, we need to log into CARC from our terminal and run the following:
@@ -42,7 +49,7 @@ git clone <repo link> <repo directory>
 ```
 with the `<repo link>` set to the above `.git` line and `<repo directory>` set to whatever name you want the folder to have on your local CARC environment. Typically, we use the same name for this folder as the name of the Github repository itself. Now you should have a copy of everything in this **CARC_Tutorial** repository present in the folder name you substituted for `<repo directory>`.
 
-## Running jobs on CARC
+## Jobs tutorial workflow on CARC
 With our tutorial repository in hand, and a strong fundamental understanding of how to set up git for version control in the CARC remote environment, let's go ahead and learn how to run some jobs. Jobs are managed on CARC using a specific job scheduling software called ***Slurm***. ***Slurm*** basically does all the heavy lifting of finding compute nodes to run your job on with the right specifications, and passing the code you want to run there and then passing back any output to the locations you specify.
 
 ### Types of jobs and Slurm file structure
