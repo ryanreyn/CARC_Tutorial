@@ -16,6 +16,7 @@ requirements:
   run:
     - python >=3.6
     - bash
+    - setuptools
 
 test:
   commands:

@@ -24,7 +24,7 @@ def run_script(script_name: str, extra_args: list):
 
 def main():
     parser = argparse.ArgumentParser(
-        prog="carc-run",
+        prog="carc-jobs-example",
         description="CLI for submitting jobs to CARC using spawn-runs.sh and jobs-submitter.sh"
     )
 
