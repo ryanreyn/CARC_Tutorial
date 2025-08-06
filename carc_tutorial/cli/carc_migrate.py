@@ -23,7 +23,8 @@ def main():
     try:
         script_path = get_script_path("run-migration.sh")
         slurm_path = get_script_path("migrate.slurm")
-        subprocess.run(["bash", script_path, args.d, slurm_path], check=True)
+        process_path = get_script_path("migrate.sh")
+        subprocess.run(["bash", script_path, args.d, slurm_path, process_path], check=True)
     except subprocess.CalledProcessError as e:
         print(f"[ERROR] Script '{script_path}' exited with code {e.returncode}", file=sys.stderr)
         sys.exit(e.returncode)

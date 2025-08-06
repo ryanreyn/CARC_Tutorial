@@ -10,7 +10,7 @@ echo $destination_dir
 
 #Use xargs to parallelize rsync across multiple threads
 mkdir $destination_dir
-find . -maxdepth 1 -mindepth 1 | xargs -n1 -P $num_threads -I% rsync -arltvvh % $destination_dir
+find $project_dir -maxdepth 1 -mindepth 1 | xargs -n1 -P $num_threads -I% rsync -arltvvh % $destination_dir
 printf "Done syncing directories!"
 
 # #I'm not totally sure about the contents of this line below

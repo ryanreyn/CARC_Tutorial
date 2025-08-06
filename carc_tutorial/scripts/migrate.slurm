@@ -8,6 +8,7 @@
 #SBATCH --error=migration_err
 
 project_dir=$1
+process_script=$2
 
 #Call the script that actually runs the migration
-./migrate.sh $project_dir $SLURM_CPUS_PER_TASK
+bash $process_script $project_dir $SLURM_CPUS_PER_TASK
