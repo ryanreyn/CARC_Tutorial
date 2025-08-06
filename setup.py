@@ -2,7 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name="carc_tutorial",
-    version="0.1.0",
+    usc_scm_version=True,
+    setup_requires=["setuptools_scm"]
     packages=find_packages(),
     include_package_data=True,
     package_data={

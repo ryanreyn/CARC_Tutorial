@@ -1,9 +1,14 @@
+{% set version = GIT_DESCRIBE_TAG %}
+{% set name = "carc_tutorial" %}
+
 package:
-  name: carc_tutorial
-  version: "0.1.0"
+  name: {{ name }}
+  version: "{{ version }}"
 
 source:
   path: ..
+  git_url: https://github.com/ryanreyn/CARC_Tutorial.git
+  git_tag: v{{ version }}
 
 build:
   noarch: python
@@ -20,9 +25,11 @@ requirements:
 
 test:
   commands:
-    - carc-run --help || true   # allow help to fail silently if no help text yet
+    - carc-jobs-example --help
+    - carc-migrate --help
 
 about:
   home: https://github.com/ryanreyn/CARC_Tutorial
   license: MIT
   summary: CLI tools and bash wrappers for cluster computing efforts
+  dev_url: https://github.com/ryanreyn/CARC_Tutorial
