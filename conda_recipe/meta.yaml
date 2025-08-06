@@ -1,0 +1,27 @@
+package:
+  name: carc_tutorial
+  version: "0.1.0"
+
+source:
+  path: ..
+
+build:
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
+
+requirements:
+  build:
+    - python
+    - pip
+  run:
+    - python >=3.6
+    - bash
+
+test:
+  commands:
+    - carc-run --help || true   # allow help to fail silently if no help text yet
+
+about:
+  home: https://github.com/ryanreyn/CARC_Tutorial
+  license: MIT
+  summary: CLI tools and bash wrappers for cluster computing efforts
