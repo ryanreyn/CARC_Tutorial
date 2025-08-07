@@ -1,3 +1,38 @@
 [build-system]
-requires = ["setuptools>=42", "setuptools_scm"]
+requires = ["setuptools>=61", "setuptools_scm"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "carc_tutorial"
+description = "CLI tools for CARC cluster programming"
+authors = [
+    { name = "Ryan Reynolds" }
+]
+requires-python = ">=3.6"
+readme = ""
+license = {text = "MIT"}  # <-- You can change or remove this if license not applicable
+dynamic = ["version"]
+dependencies = []
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: POSIX :: Linux"
+]
+
+[tool.setuptools]
+packages = ["carc_tutorial"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+carc_tutorial = ["scripts/*"]
+
+[project.scripts]
+carc-jobs-example = "carc_tutorial.cli.carc_jobs_example:main"
+carc-migrate = "carc_tutorial.cli.carc_migrate:main"
+carc-nf-example = "carc_tutorial.cli.carc_nf_example:main"
+
+[tool.setuptools_scm]
+# No config needed if default (version from git tags)
+
+[tool.setuptools.packages.find]
+where = ["."]
