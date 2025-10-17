@@ -16,6 +16,8 @@ def main():
     )
     parser.add_argument(
         "-d", metavar="DIR", help="Directory to migrate (passed to run-migration.sh)"
+    )
+    parser.add_argument(
         "-t", metavar="TIME", help="Maximum walltime (days) for the migration job"
     )
 
