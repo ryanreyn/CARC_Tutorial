@@ -67,8 +67,16 @@ jobs:
         id: artifact
         shell: bash -l {0}
         run: |
-          # Print what conda-build thinks the output is
-          ART=$(micromamba run -n buildenv conda-build ./conda_recipe --output)
+          # Use the version from environment and construct the path
+          VERSION="${GIT_DESCRIBE_TAG#v}"  # Strip 'v' prefix
+          ART="./output/noarch/carc_tutorial-${VERSION}-py_0.conda"
+          
+          if [[ ! -f "$ART" ]]; then
+            echo "Error: Expected artifact not found at $ART"
+            ls -la ./output/noarch/
+            exit 1
+          fi
+          
           echo "artifact=$ART" >> "$GITHUB_OUTPUT"
           echo "Will upload: $ART"
 
