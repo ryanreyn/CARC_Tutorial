@@ -69,5 +69,5 @@ jobs:
         run: |
           ART_DIR=output/noarch
           micromamba run -n buildenv anaconda -t "$ANACONDA_API_TOKEN" upload \
-            -u <your_channel> --label main --skip-existing \
+            -u ryanreyn --label main --skip-existing \
             $ART_DIR/carc_tutorial-*.tar.bz2 $ART_DIR/carc_tutorial-*.conda || true
