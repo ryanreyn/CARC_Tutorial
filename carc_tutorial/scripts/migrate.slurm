@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -p qcb
 #SBATCH -A nmherrer_110
-#SBATCH -t 28-00:00:00
+#SBATCH --time=1-00:00:00
 #SBATCH --mem=32gb
 #SBATCH --cpus-per-task=32
 #SBATCH --out=migration_out

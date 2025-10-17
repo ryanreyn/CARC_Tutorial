@@ -16,6 +16,7 @@ def main():
     )
     parser.add_argument(
         "-d", metavar="DIR", help="Directory to migrate (passed to run-migration.sh)"
+        "-t", metavar="TIME", help="Maximum walltime (days) for the migration job"
     )
 
     args = parser.parse_args()
@@ -24,7 +25,7 @@ def main():
         script_path = get_script_path("run-migration.sh")
         slurm_path = get_script_path("migrate.slurm")
         process_path = get_script_path("migrate.sh")
-        subprocess.run(["bash", script_path, args.d, slurm_path, process_path], check=True)
+        subprocess.run(["bash", script_path, args.d, slurm_path, process_path, args.t], check=True)
     except subprocess.CalledProcessError as e:
         print(f"[ERROR] Script '{script_path}' exited with code {e.returncode}", file=sys.stderr)
         sys.exit(e.returncode)
